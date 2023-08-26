@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" alt="bash logo"/>
-</p>
-
 ## Table of Contents
   1. [Basic Operations](#1-basic-operations)  
     1.1. [File Operations](#11-file-operations)  
@@ -1276,21 +1272,3 @@ The optional `wait` command will then wait for all the jobs to finish.
 sleep 10 & sleep 5 &
 wait
 ```
-
-## Contribution
-
-- Report issues [How to](https://help.github.com/articles/creating-an-issue/)
-- Open pull request with improvements [How to](https://help.github.com/articles/about-pull-requests/)
-- Spread the word
-
-## Translation
-- [Chinese | 简体中文](https://github.com/vuuihc/bash-guide)
-- [Turkish | Türkçe](https://github.com/omergulen/bash-guide)
-- [Japanese | 日本語](https://github.com/itooww/bash-guide)
-- [Russian | Русский](https://github.com/navinweb/bash-guide)
-- [Vietnamese | Tiếng Việt](https://github.com/nguyenvanhieuvn/hoc-bash)
-- [Spanish | Español](https://github.com/mariotristan/bash-guide)
-
-## License
-
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)

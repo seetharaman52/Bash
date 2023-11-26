@@ -1,0 +1,34 @@
+name: Daily Contribution
+
+on:
+  schedule:
+    - cron: "0 0 * * 3"
+
+jobs:
+  contribute:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set random commit count
+      id: set_commit_count
+      run: |
+        echo "::set-output name=commit_count::$(shuf -i 5-20 -n 1)"  # Generates a random number between 5 and 20
+
+    - name: Create random commits
+      run: |
+        for ((i=0; i<${{ steps.set_commit_count.outputs.commit_count }}; i++)); do
+          echo "Daily contribution $i" >> contribution.txt
+          git config --local user.email "seetharamanshan699@gmail.com"
+          git config --local user.name "seetharaman52"
+          git add contribution.txt
+          git commit -m "Daily contribution $i"
+        done
+
+    - name: Remove contribution.txt
+      run: |
+        git rm contribution.txt
+        git commit -m "Remove contribution.txt"
+        git push

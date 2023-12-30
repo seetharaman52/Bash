@@ -1,8 +1,8 @@
-# Bash Scripts Repository
+## Bash Scripts Repository
 
 This repository contains a collection of Bash scripts for various purposes. The scripts cover a range of topics, from basic operations to more advanced concepts.
 
-## Scripts Overview
+### Scripts Overview
 
 1. **Addition with funciton.sh**
    - Description: Script for performing addition using functions.
@@ -33,6 +33,8 @@ This repository contains a collection of Bash scripts for various purposes. The 
 
 10. **Illustration of Stepping.sh**
     - Description: Script demonstrating stepping through a range of numbers.
+   
+11. **And Somemore**
 
 ## How to Use
 

@@ -53,14 +53,14 @@ echo -e "After slicing from end (last 3): ${arr[@]: -3}\n"
 echo -e "From the last 4, slice first 2: ${arr[@]: -4:2}\n"
 comment
 
-# Example of process similar to "ls" but not exactly
+## Example of process similar to "ls" but not exactly ##
 <<comment
 for file in /home/seetharaman/Downloads/*; do
     echo -e "$(basename "$file")"
 done
 comment
 
-# Finding odd or even
+## Finding odd or even ##
 <<comment
 declare -a arr=({1..10})
 for num in ${arr[@]}; do
@@ -70,14 +70,14 @@ for num in ${arr[@]}; do
 done
 comment
 
-# Reading lines from a file
+## Reading lines from a file ##
 <<comment
 while IFS= read -r line; do
     echo "Line: $line"
 done < $(pwd)/inputfile.txt
 comment
 
-# Getting user input
+## Getting user input ##
 <<comment
 declare -a arr
 for ((i=1; i<=3; i++)); do
@@ -86,5 +86,20 @@ for ((i=1; i<=3; i++)); do
 done
 echo ${arr[@]}
 comment
+
+## Simple while loop ##
+<<comment
+while true; do
+    read -p "Enter something (type 'exit' to quit): " input
+
+    if [ "$input" == "exit" ]; then
+        echo "Exiting the loop."
+        break
+    fi
+
+    echo "You entered: $input"
+done
+comment
+
 
 

@@ -8,10 +8,12 @@ fi
 excluded=$(basename "$0")
 
 for file in "$@"; do
-  if [ "$file" != "$excluded" ]; then
-    basename="${file%.*}"
-    mkdir $(pwd)/"$basename"
-    mv $(pwd)/"$file" $(pwd)/"$basename"
+  if [ -f $file ]; then
+    if [ "$file" != "$excluded" ]; then
+      basename="${file%.*}"
+      mkdir $(pwd)/"$basename"
+      mv $(pwd)/"$file" $(pwd)/"$basename"
+    fi
   fi
 done
 

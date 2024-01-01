@@ -15,7 +15,6 @@ Each script is self-contained. Simply run them using the Bash interpreter:
 #!/bin/bash
 
 ## Variations of Forloops ##
-
 <<comment
 for i in $(seq 0 2 10); do
    echo $i
@@ -32,7 +31,6 @@ comment
 
 
 ## Illustration of array ##
-
 <<comment
 declare -a arr=("A" "B" "C")
 echo -e "\nElements in array: ${arr[@]}\n"

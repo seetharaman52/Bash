@@ -22,8 +22,8 @@ for i in $(seq 0 2 10); do
 done
 
 for i in {1..10..2}; do
-:    echo $i
-:done
+    echo $i
+done
 
 for ((i=1; i<=10; i++)); do
     echo $i

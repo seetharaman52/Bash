@@ -111,6 +111,7 @@ sed -i 's/word1/word2/g' file.txt # Replaces word1 with word2
 sed -i 's/\//:/g' file.txt # Replaces "/" with ":"
 sed -n '1,10p' $0 # View first 10 lines of this file
 
+## Form a copy of current file to same dir in diff name ##
 f="test1.sh"
 cp $0 ./"$f" # Form a Copy of this file in same dir
 echo "Formed a file called $f"
@@ -121,10 +122,11 @@ cut -d":" -f1 /etc/passwd # Gives $1
 
 ## Just a fun array process ##
 # Make a file called food.txt in the same dir and fill some food names
-
 declare -a lunch_options
 work_dir=$(dirname "$(readlink -f "${0}")")
 food_places="${work_dir}/food.txt"
+readonly FILE_NOT_FOUND="150"
+readonly NO_OPTIONS_LEFT="180"
 
 terminate(){
     local -r msg="${1}"
@@ -134,13 +136,13 @@ terminate(){
 }
 
 if [[ ! -f "${food_places}" ]]; then
-    terminate "Error: $food_places doesn't exist" 150
+    terminate "Error: $food_places doesn't exist: ${FILE_NOT_FOUND}"
 fi
 
 function fill_array(){
     mapfile -t lunch_options < "${food_places}"
     if [[ "${#lunch_options[@]}" -eq 0 ]]; then
-        terminate "Error: No food options left in $(basename "$food_places")"
+        terminate "Error: No food options left in $(basename "$food_places"): ${NO_OPTIONS_LEFT}"
     fi
 }
 
@@ -157,7 +159,6 @@ index=$((RANDOM % "${#lunch_options[@]}"))
 echo ${lunch_options[$index]}
 unset "lunch_options[${index}]"
 update_opt
-
 
 ## To check if a command is there are not ##
 command=htop

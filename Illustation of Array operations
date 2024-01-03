@@ -23,3 +23,16 @@ echo "${myarr[@]}"
 # Adding an array element using index
 myarr[2]="newcar"
 echo "${myarr[@]}"
+
+# Another Example
+
+declare -a arr=("A" "B" "C")
+echo -e "\nElements in array: ${arr[@]}\n"
+echo -e "Length of array: ${#arr[@]}\n"
+unset arr[0]
+echo -e "Elements in array after unset: ${arr[@]}\n"
+echo -e "Length of array after unset: ${#arr[@]}\n"
+arr[0]="Z"
+echo -e "After adding an element at position 0: ${arr[@]}\n"
+arr+=("D" "E")
+echo -e "After adding new elements: ${arr[@]}\n"

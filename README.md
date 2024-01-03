@@ -166,4 +166,40 @@ if command -v $command > /dev/null; then
     echo "Yes!"
 fi
 
+## Stderr : Error reporting ##
+# TO indicate error we use >&2 in scripts
+# Hide error: 2> /dev/null
+# Hide output > /dev/null
+msg="Try Again!"
+echo "Error: ${msg}" >&2
+
+## Shift function ##
+function print_args(){
+    while [[ $# -gt 0 ]]; do
+        echo $1
+        shift
+    done
+}
+print_args 1 2 3 4 5
+
+## The TRAP command ##
+trap 'echo "CTRL+C Pressed!"' SIGINT
+sleep infinity
+
+## Another example of TRAP (For CTRL + Z, use SIGTSTP) ##
+function clean_up(){
+    echo -e "\nCTRL +C pressed!\nCleaning up the disk.."
+    echo "Successfully cleaned!"
+}
+echo "Press CTRL + C"
+trap clean_up SIGINT
+sleep infinity
+
+## Args to Array ##
+function args_disp(){
+    args=("$@")
+    echo ${args[@]}
+    len=${#args[@]}
+}
+args_disp 1 2 3 4 5
 
